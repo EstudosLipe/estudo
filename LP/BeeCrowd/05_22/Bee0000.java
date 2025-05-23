@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Criptografia {
+public class Bee0000 {
     public static void main(String args[]){
         int aux=0;
         Scanner sc=  new Scanner(System.in);
