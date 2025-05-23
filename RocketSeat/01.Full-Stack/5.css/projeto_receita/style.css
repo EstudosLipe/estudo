@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url("https://static.itdg.com.br/images/640-400/de2cab938ecd10215ee04754f5293cb1/55003-172796-original.jpeg");
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+#root {
+    backdrop-filter: blur(5px);
+}
+
+#container {
+    width: 70%;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #F0E8C2;
+    border-radius: 25px;
+}
+#container header{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+#container header h1{
+    text-align: center;
+    font-size: 25pt;
+}
+#container header img{
+    display: block;
+    margin: 0 auto;
+    width: 900px;
+    border-radius: 15px;
+}
+section ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+section ul li img{
+    width: 50px;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h5,
+h6 {
+    text-transform: uppercase;
+    padding: 10px 0 20px 0;
+}
+h3 {
+    text-decoration: underline;
+}
+h4{
+    font-weight: normal;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 15pt;
+}
+
+footer {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 5px;
+}

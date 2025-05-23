@@ -1,2 +1,3 @@
-# estudo
-Repositório de estudos de conteúdos apresentado na RocketSet e na FATEC
+# Estudos
+ Repositório de estudos: Academico, Trabalho e Pessoal
+

@@ -1,0 +1,14 @@
+{
+    "name": "vendor/b3",
+    "description": "Aplicação que me gera o relatorio aprendido em aula automatico",
+    "authors": [
+        {
+            "name": "Lip22k",
+            "email": "131167201+Lip22k@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.1",
+        "ext-fileinfo": "*"
+    }
+}
