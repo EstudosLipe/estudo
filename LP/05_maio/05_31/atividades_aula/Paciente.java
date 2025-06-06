@@ -1,29 +1,33 @@
 public class Paciente {
-    private StringBuffer nomePaciente;
+    private StringBuffer nomePaciente=new StringBuffer("");
     private String dataNascimento;
     private double peso;
-    private double altura; //m
+    private double altura; // m
     private int gorduraCorporal;
 
     // Construtor sem parametros
     public Paciente() {
-        this.nomePaciente.append("Paciente Exemplo");
-        this.dataNascimento = "31/01/2006";
-        this.peso = 107.0;
+        setNome("Paciente Exemplo");
+        setDataNascimento("31/01/2006");
+        setPeso(107.0);
+        setAltura(1.78);
     }
 
     // Construtor com parametro
-    public Paciente(StringBuffer nome, String dn, double peso) {
-        this.nomePaciente.append(nome);
-        this.dataNascimento = dn;
-        this.peso = peso;
+    public Paciente(String nome, String dn, double peso, double altura) {
+        setNome(nome);
+        setDataNascimento(dn);
+        setPeso(peso);
+        setAltura(altura);
+        setGorduraCorporal(peso, altura);
     }
 
     // Copy COntructor
     public Paciente(Paciente paciente) {
-        this.nomePaciente.append(paciente.nomePaciente);
-        this.dataNascimento = paciente.dataNascimento;
-        this.peso = paciente.peso;
+        setNome(paciente.nomePaciente.toString());
+        setDataNascimento(paciente.dataNascimento);
+        setPeso(peso);
+        setAltura(altura);
     }
 
     // Recupe Nome
@@ -31,9 +35,17 @@ public class Paciente {
         return nomePaciente;
     }
 
+    public void setNome(String nome) {
+        this.nomePaciente.replace(0,nomePaciente.length(), nome);
+    }
+
     // Recupe DN
     public String getDataNascimento() {
         return dataNascimento;
+    }
+
+    public void setDataNascimento(String dn) {
+        this.dataNascimento = dn;
     }
 
     // Recupera peso
@@ -41,21 +53,35 @@ public class Paciente {
         return peso;
     }
 
-    // Recupera Gordura Corporal
-    public int getGorduraCorporal() {
-        return gorduraCorporal;
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 
+    public double getAltura() {
+        return this.altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    // Recupera Gordura Corporal
+    public int getGorduraCorporal() {
+        this.gorduraCorporal = (int) (peso / (Math.pow(2, altura)));
+        return gorduraCorporal;
+    }
+    public void setGorduraCorporal(double peso, double altura){
+        this.gorduraCorporal = (int) (peso / (Math.pow(2, altura)));
+    }
+
+
     // Imprimir dados
-    public void imprimirPaciente(Paciente paciente) {
-        System.out.print("Nome: " + paciente.getNome() + "\n" + "Data de nascimento: " + paciente.getDataNascimento()
-                + "\n" + "Peso: " + paciente.getPeso() + "\n" + "Gordura Corporal: " + paciente.getGorduraCorporal());
+    public void imprimirPaciente() {
+        System.out.print("Nome: " + getNome() + "\n" + "Data de nascimento: " + getDataNascimento()
+                + "\n" + "Peso: " + getPeso() + "\n" +"Altura: " + getAltura() + "m\n" + "Gordura Corporal: " + getGorduraCorporal()+"%");
     }
 
     public String verificarSituacao() {
-
-        this.gorduraCorporal = (int) (peso/(Math.pow(2, altura)));
-
         if (gorduraCorporal < 5) {
             return "Muito magro: menos de 5% de gordura corporal;";
         } else if (gorduraCorporal < 15) {
