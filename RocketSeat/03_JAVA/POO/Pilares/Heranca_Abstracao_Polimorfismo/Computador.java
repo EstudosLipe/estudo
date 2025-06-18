@@ -6,22 +6,24 @@ public class Computador {
         System.out.print("Escolha o sistema Operacional que deseja iniciar\n1 - Ubuntu\n2 - Mint\n3 - Fedora\n-> ");
         int option = sc.nextInt();
 
+        Linux so = null;
+
         switch (option){
             case 1:
-                Ubuntu ubuntu = new Ubuntu();
-                ubuntu.gerenciadoTarefas();
+                so = new Ubuntu();
+                so.gerenciadoTarefas();            
                 break;
             case 2:
-                Mint mint = new Mint();
-                mint.gerenciadoTarefas();
+                so = new Mint();
+                so.gerenciadoTarefas();
                 break;
             case 3: 
-                Fedora fedora = new Fedora();
-                fedora.gerenciadoTarefas();
+                so = new Fedora();
+                so.gerenciadoTarefas();
                 break;
             default:
-                System.err.print("SO não encontrado");
-                System.exit(0);
+                
+                
         }
 
         sc.close();
