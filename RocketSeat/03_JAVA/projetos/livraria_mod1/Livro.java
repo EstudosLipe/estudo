@@ -1,8 +1,6 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import javax.xml.crypto.Data;
-
 public class Livro {
     private int isbn;
     private String titulo;
@@ -10,7 +8,17 @@ public class Livro {
     private LocalDate dataCadastro, dataAtulizacao;
     private Autor autor;
 
-    public Livro(int isbn, String titulo, boolean disponibilidade, String dataCadastro, String dataAtulizacao, Autor autor){
+    public Livro(Livro livro){
+        setIsbn(livro.getIsbn());
+        setTitulo(livro.getTitulo());
+        setDisponibilidade(livro.getDisponibilidade());
+        setDataCadastro(String.format("%s",livro.getDataCadastro()));
+        setDataAtulizacao(String.format("%s",livro.getDataCadastro()));
+        setAutor(livro.getAutor());
+    }
+
+    public Livro(int isbn, String titulo, boolean disponibilidade, String dataCadastro, String dataAtulizacao,
+            Autor autor) {
         setIsbn(isbn);
         setTitulo(titulo);
         setDisponibilidade(disponibilidade);
