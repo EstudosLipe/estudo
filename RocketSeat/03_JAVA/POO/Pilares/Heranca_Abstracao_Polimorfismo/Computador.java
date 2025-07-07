@@ -22,8 +22,6 @@ public class Computador {
                 so.gerenciadoTarefas();
                 break;
             default:
-                
-                
         }
 
         sc.close();
