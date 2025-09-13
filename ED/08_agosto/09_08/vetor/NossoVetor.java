@@ -18,6 +18,24 @@ public class NossoVetor {
         ocupacao = 0;
     }
 
+    // Verifica se o array está cheio
+    public boolean verifyFull() {
+        return this.ocupacao == this.vetor.length;
+    }
+
+    // Verifica se o array está vazio
+    public boolean verifyEmpty() {
+        return ocupacao == 0;
+    }
+
+    private void redimensionar(int newLenght) {
+        int vetorLocal[] = new int[newLenght];
+        for (int i = 0; i < this.ocupacao; i++) {
+            vetorLocal[i] = this.vetor[i];
+        }
+        this.vetor = vetorLocal;
+    }
+
     // Getters e Setters
     public int[] getVetor() {
         return this.vetor;
@@ -30,16 +48,6 @@ public class NossoVetor {
 
     public int getValorVetor(int index) {
         return this.vetor[index];
-    }
-
-    // Verifica se o array está cheio
-    public boolean verifyFull() {
-        return this.ocupacao == this.vetor.length;
-    }
-
-    // Verifica se o array está vazio
-    public boolean verifyEmpty() {
-        return ocupacao == 0;
     }
 
     // Inserir um elemento no vetor
@@ -70,7 +78,7 @@ public class NossoVetor {
         return false;
     }
 
-    public NossoVetor cloneObject(NossoVetor vetor){
+    public NossoVetor cloneObject(NossoVetor vetor) {
         NossoVetor clone = new NossoVetor(vetor.getVetor().length);
         for (int i = 0; i < this.vetor.length; i++) {
             clone.insertElement(vetor.getVetor()[i]);
@@ -79,33 +87,7 @@ public class NossoVetor {
         return clone;
     }
 
-    private void redimensionar(int newLenght) {
-        int vetorLocal[] = new int[newLenght];
-        for (int i = 0; i < this.ocupacao; i++) {
-            vetorLocal[i] = this.vetor[i];
-        }
-        this.vetor = vetorLocal;
-    }
-
     // PARAMETRIZE CODIGOS "IGUAIS"
-
-    // private void halfVetor() {
-    // int vetorLocal[] = new int[this.vetor.length / 2];
-    // for (int i = 0; i < this.ocupacao; i++) {
-    // vetorLocal[i] = this.vetor[i];
-    // }
-    // this.vetor = vetorLocal;
-    // }
-
-    // private void doubleVetor() {
-    // int vetorLocal[] = new int[this.vetor.length * 2]; // Ao fim do método, as
-    // variaveis locais deste escopo estão
-    // // aptas ao discarte
-    // for (int i = 0; i < this.ocupacao; i++) {
-    // vetorLocal[i] = this.vetor[i];
-    // }
-    // this.vetor = vetorLocal;
-    // }
 
     // Método ToString generaliza a devolução para ser impresso em qualquer
     // dispositivo
