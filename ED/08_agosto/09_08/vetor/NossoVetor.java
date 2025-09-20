@@ -1,4 +1,7 @@
 // Classe modelo
+
+import java.util.Random;
+
 public class NossoVetor {
     private int vetor[];
 
@@ -87,7 +90,44 @@ public class NossoVetor {
         return clone;
     }
 
-    // PARAMETRIZE CODIGOS "IGUAIS"
+    public int size() {
+        return this.ocupacao;
+    }
+
+    public void preencheVetor() {
+        Random random = new Random();
+        for (int i = 0; i < this.vetor.length; i++) {
+            this.vetor[i] = random.nextInt(vetor.length * 10);
+        }
+        ocupacao = this.vetor.length;
+    }
+
+    int partition(int p, int r) {
+        int x = this.vetor[r]; // o pivo é o ultimo elemento
+        int i = p - 1;
+        int aux = 0;
+        for (int j = p; j < r; j++) {
+            if (this.vetor[j] <= x) {
+                i++;
+                aux = this.vetor[i];
+                this.vetor[i] = this.vetor[j];
+                this.vetor[j] = aux;
+            }
+        }
+        i++;
+        aux = this.vetor[r];
+        this.vetor[r] = this.vetor[i];
+        this.vetor[i] = aux;
+        return i;
+    }
+
+    void quickSort(int p, int r) {
+        if (p < r) {
+            int q = partition(p, r);
+            quickSort(p, q - 1);
+            quickSort(q + 1, r);
+        }
+    }
 
     // Método ToString generaliza a devolução para ser impresso em qualquer
     // dispositivo
