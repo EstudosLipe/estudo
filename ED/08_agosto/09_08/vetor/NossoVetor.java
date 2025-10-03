@@ -102,6 +102,20 @@ public class NossoVetor {
         ocupacao = this.vetor.length;
     }
 
+    // Bubble Sort
+    public void bubbleSort() {
+        for (int i = 0; i < this.vetor.length; i++) {
+            for (int j = 0; j < this.vetor.length; j++) {
+                if (this.vetor[i] < this.vetor[j]) {
+                    int aux = this.vetor[i];
+                    this.vetor[i] = this.vetor[j];
+                    this.vetor[j] = aux;
+                }
+            }
+        }
+    }
+
+    // Quick Sort = Método mais rápido
     int partition(int p, int r) {
         int x = this.vetor[r]; // o pivo é o ultimo elemento
         int i = p - 1;
@@ -131,9 +145,12 @@ public class NossoVetor {
 
     // Método ToString generaliza a devolução para ser impresso em qualquer
     // dispositivo
+
     @Override // Sobrescrita
     public String toString() {
-        String s = "Tamanho = " + this.vetor.length + "\nOcupacao = " + this.ocupacao + "\n";
+        // String s = "Tamanho = " + this.vetor.length + "\nOcupacao = " + this.ocupacao
+        // + "\n";
+        String s = "";
         for (int i = 0; i < this.vetor.length; i++) {
             s += vetor[i] + " ";
         }

@@ -3,32 +3,53 @@ import java.util.Scanner;
 
 public class TesteOrdenacao {
     public static void main(String[] args) {
-        NossoVetor v;
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int t;
-        long ini;
-        long fim;
-        System.out.print ("escolha o tamanho do vetor, 0 encerra: ");
-        t = scanner.nextInt();
-        while (t > 0) {
-            v = new NossoVetor(t);
-            
-            v.preencheVetor();
-            ini = new Date().getTime();
-            v.quickSort(0, v.size()-1);
-            fim = new Date().getTime();
-            // System.out.print(v);
-            System.out.println("\nquick demorou " + (fim - ini) + " milissegundos");
 
-            // Estouro de pilha, ou seja, caiu no pior caso (a pilha já está ordenada)
+        System.out.print("escolha o tamanho do vetor, 0 encerra: ");
+        t = sc.nextInt();
+        testaOrdenacao(t);
+
+        sc.close();
+    }
+
+    public static void testaOrdenacao(int qtd) {
+        Scanner sc = new Scanner(System.in);
+        if (qtd != 0) {
+            long ini;
+            long fim;
+            NossoVetor vetor = new NossoVetor(qtd);
+            vetor.preencheVetor();
+            // Bubble
             ini = new Date().getTime();
-            v.quickSort(0, v.size()-1);
+            vetor.bubbleSort();
             fim = new Date().getTime();
-            // System.out.print(v);
-            System.out.println("\nquick2 demorou " + (fim - ini) + " milissegundos");
-            System.out.print("\nescolha o novo tamanho, 0 encerra: ");
-            t = scanner.nextInt();
+            System.out.println("\nBubble demorou " + (fim - ini) + " milissegundos para " + qtd + " itens");
+
+            // ini = new Date().getTime();
+            // vetor.insertSort();
+            // fim = new Date().getTime();
+            // System.out.println("\nInsert demorou " + (fim - ini) + " milissegundos para "
+            // + qtd + " itens");
+
+            // ini = new Date().getTime();
+            // vetor.selectionSort();
+            // fim = new Date().getTime();
+            // System.out.println("\nSelection demorou " + (fim - ini) + " milissegundos
+            // para " + qtd + " itens");
+
+            // ini = new Date().getTime();
+            // vetor.quickSort(0, vetor.size() - 1);
+            // fim = new Date().getTime();
+            // System.out.println("\nQuick demorou " + (fim - ini) + " milissegundos para "
+            // + qtd + " itens");
+
+            System.out.println(vetor);
+            
+            System.out.println("escolha o tamanho do vetor, 0 encerra: ");
+            int t = sc.nextInt();
+            testaOrdenacao(t);
         }
-        scanner.close();
+        sc.close();
     }
 }
