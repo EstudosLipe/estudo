@@ -38,5 +38,6 @@ public class Almoxarifado {
         for (int j = 0; j < i; j++) {
             System.out.println("Posição " + j + ": " + prateleira[i]);
         }
+        sc.close();
     }
 }
