@@ -115,6 +115,21 @@ public class NossoVetor {
         }
     }
 
+    // Selection Sort
+    public void selectionSort() {
+        for (int i = 0; i < this.vetor.length - 1; i++) {
+            int pos = i;
+            for (int j = i + 1; j < this.vetor.length; j++)
+                if (this.vetor[j] < this.vetor[pos])
+                    pos = j;
+            if (pos != i) {
+                int aux = this.vetor[i];
+                this.vetor[i] = this.vetor[pos];
+                this.vetor[pos] = aux;
+            }
+        }
+    }
+
     // Quick Sort = Método mais rápido
     int partition(int p, int r) {
         int x = this.vetor[r]; // o pivo é o ultimo elemento

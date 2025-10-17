@@ -1,0 +1,12 @@
+.button{
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #202020;
+    border-radius: 0.2rem;
+}
+
+.button span{
+    text-transform: capitalize;
+    font-weight: 600;
+}
